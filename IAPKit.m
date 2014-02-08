@@ -33,7 +33,6 @@ SKMutablePayment *payment;
     if (self != nil) {
         productIdentifiers = [[NSSet alloc] init];
         purchasedProducts = [[NSMutableArray alloc] init];
-        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     }
     return self;
 }
@@ -89,6 +88,16 @@ SKMutablePayment *payment;
     return ([purchasedProducts containsObject:productId]);
 }
 
+
+-(void) addTransactionObserver
+{
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+}
+
+-(void) removeTransactionObserver
+{
+    [[SKPaymentQueue defaultQueue]removeTransactionObserver:self];
+}
 
 
 

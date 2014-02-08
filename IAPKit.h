@@ -32,7 +32,7 @@ typedef void(^cancelledPurchaseCallback)(void);
         successCallback callSuccess;
         errorCallback callError;
         successPurchaseCallback callPurchaseSuccess;
-        errorPurchaseCallback callErrorSuccess;
+        errorPurchaseCallback callPurchaseError;
         cancelledPurchaseCallback callPurchaseCancelled;
     
     @public
@@ -56,6 +56,9 @@ typedef void(^cancelledPurchaseCallback)(void);
                onCancel:(void (^)(void))onCancel  
                  onError:(void (^)(void))onError;
 - (BOOL) productAlreadyPurchased: (NSString *)productId;
+
+- (void) addTransactionObserver;
+- (void) removeTransactionObserver;
 
 
 
